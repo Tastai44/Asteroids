@@ -22,28 +22,30 @@ import java.util.ArrayList;
 public class Game extends BasicGame{
     public static final String GAME_IDENTIFIER = "com.mystudio.gamename";
 
-    // Sprite file locations
-    private static final int MAX_BULLET = 2; // number of bullets
-    private static final int MAX_LARGE = 4; // number of Big asteroids
-    private static final int MAX_MEDIUM = 8; // number of Medium asteroids
-    private static final int MAX_SMALL = 16; // number of Small asteroids
 
+    // Sprite file locations
+    private static int MAX_BULLET = 2; // initialize number of bullets
+    private static int MAX_LARGE = 8; // initialize number of Big asteroids
+    private static int MAX_MEDIUM = 14; // initialize number of Medium asteroids
+    private static int MAX_SMALL = 25; // initialize number of Small asteroids
     private BackGround bg;
     private Player player;
     private Bullet[] bullets = new Bullet[MAX_BULLET];
     // Used to pool our asteroids
-    private Asteroid[] asteroids = new Asteroid[28];
+    private Asteroid[] asteroids = new Asteroid[50];
     // any active ones we'll add here to loop through
     private ArrayList<Asteroid> activeAsteroids;
     private Score score = new Score();
     private Lives lives = new Lives();
     private UI ui;
     private Sounds myGameSounds;
+    int s; // keep score
+    int level=1;
 
     @Override
     public void initialise() {
         bg = new BackGround(ImageFilePaths.BACKGROUND);
-        ui = new UI(lives.getRemainingLives(), score.getScore());
+        ui = new UI(lives.getRemainingLives(), score.getScore(), level);
         player = new Player();
         initialiseAsteroids();
         initialiseBullets();
@@ -154,9 +156,10 @@ public class Game extends BasicGame{
             // Add
             if(lives.getRemainingLives() == 0){
                 System.out.println("Game Over!");
+
             }
             myGameSounds.death.play();
-            ui.set(lives.getRemainingLives(),score.getScore());
+            ui.set(lives.getRemainingLives(),score.getScore(),level);
         }
     }
 
@@ -166,27 +169,34 @@ public class Game extends BasicGame{
                     asteroid.getCollisionCircle().getX(),
                     asteroid.getCollisionCircle().getY()
             );
-            score.changeScoreByAmount(10);
+            score.changeScoreByAmount(10); // Big size
         } else if (asteroid.getSize() == Asteroid.SIZE_MEDIUM_ASTEROID) {
             placeAsteroid(MAX_MEDIUM + MAX_LARGE,
                     MAX_SMALL + MAX_MEDIUM + MAX_LARGE,
                     asteroid.getCollisionCircle().getX(),
                     asteroid.getCollisionCircle().getY()
             );
-            score.changeScoreByAmount(50);
+            score.changeScoreByAmount(20); // Medium size
         } else {
-            score.changeScoreByAmount(200);
+            score.changeScoreByAmount(80); // Small size
         }
-        // Add if score more than 1000 points, then life is increase 1,
-        // and score will reset to 0 point
-        if(score.getScore() > 1000){
+        activeAsteroids.remove(asteroid);
+
+        // If score more than 300 points, then life and level are increase 1,
+        // and score will reset to 0 point.
+        // Player can win when hit level 5.
+        if(score.getScore() > 300){
             lives.increaseLife();
             score.setScore(0);
+            level++;
+            if(level == 5) {
+                System.out.println("YOU WIN!");
+            }
         }
 
-        ui.set(lives.getRemainingLives(),score.getScore());
+        ui.set(lives.getRemainingLives(),score.getScore(),level);
         asteroid.setActive(false);
-        activeAsteroids.remove(asteroid);
+
     }
 
     public void placeAsteroid(int from, int to, float posX, float posY) {

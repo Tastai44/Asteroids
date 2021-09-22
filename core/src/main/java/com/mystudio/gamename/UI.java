@@ -20,19 +20,22 @@ import org.mini2Dx.core.Graphics;
 public class UI {
     private String lives;
     private String score;
+    private String level;
 
-    public UI(int lives, int score) {
-        set(lives,score);
+    public UI(int lives, int score, int level) {
+        set(lives,score,level);
     }
 
-    public void set(int lives, int score) {
+    public void set(int lives, int score, int level) {
         this.lives = "Lives Remaining: " + Integer.toString(lives);
         this.score = "Score: " + Integer.toString(score);
+        this.level = "Level: " + Integer.toString(level);
     }
 
     public void render(Graphics g) {
         g.drawString(lives, 0,0);
         g.drawString(score, 250,0);
+        g.drawString(level, 500,0);
     }
 
 }
