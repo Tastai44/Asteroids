@@ -17,7 +17,8 @@ package com.mystudio.gamename;
 
 public class ImageFilePaths {
     public static final String BACKGROUND = "assets/Images/Backgrounds/3.jpeg";
-    public static final String PLAYER_ONE_SPRITE = "assets/Images/Sprites/Player/playerShip2_orange.png";
+    public static final String BACKGROUND2 = "assets/Images/Backgrounds/black.png";
+    public static final String PLAYER_ONE_SPRITE = "assets/Images/Sprites/Player/playerShip1_blue.png";
     public static final String LASER_BLUE = "assets/Images/Sprites/Lasers/laserBlue01.png";
 
     public static final String BIG_ASTEROID_SPRITE = "assets/Images/Sprites/Meteors/meteorBrown_big1.png";
