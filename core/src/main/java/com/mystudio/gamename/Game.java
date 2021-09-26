@@ -157,7 +157,7 @@ public class Game extends BasicGame{
             if(lives.getRemainingLives() == 0){
                 System.out.println("Game Over!");
                 // Game over picture
-                bg = new BackGround(ImageFilePaths.BACKGROUND2);
+                bg = new BackGround(ImageFilePaths.GAMEOVER);
             }
             myGameSounds.death.play();
             ui.set(lives.getRemainingLives(),score.getScore(),level);
@@ -193,7 +193,7 @@ public class Game extends BasicGame{
             if(level == 5) {
                 System.out.println("YOU WIN!");
                 // Game Win picture
-                bg = new BackGround(ImageFilePaths.BACKGROUND2);
+                bg = new BackGround(ImageFilePaths.WIN);
             }
         }
 
