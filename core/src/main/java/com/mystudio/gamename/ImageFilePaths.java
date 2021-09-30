@@ -19,11 +19,11 @@ public class ImageFilePaths {
     public static final String BACKGROUND = "assets/Images/Backgrounds/3.jpeg";
     public static final String GAMEOVER = "assets/Images/Backgrounds/1.jpg";
     public static final String WIN = "assets/Images/Backgrounds/22.jpg";
-    public static final String PLAYER_ONE_SPRITE = "assets/Images/Sprites/Player/playerShip1_blue.png";
+    public static final String PLAYER_ONE_SPRITE = "assets/Images/Sprites/Player/shoot.png";
     public static final String LASER_BLUE = "assets/Images/Sprites/Lasers/laserBlue01.png";
 
-    public static final String BIG_ASTEROID_SPRITE = "assets/Images/Sprites/Meteors/meteorBrown_big1.png";
-    public static final String MEDIUM_ASTEROID_SPRITE = "assets/Images/Sprites/Meteors/meteorBrown_med1.png";
-    public static final String SMALL_ASTEROID_SPRITE = "assets/Images/Sprites/Meteors/meteorBrown_small2.png";
+    public static final String BIG_ASTEROID_SPRITE = "assets/Images/Sprites/Meteors/pari.png";
+    public static final String MEDIUM_ASTEROID_SPRITE = "assets/Images/Sprites/Meteors/prayut ( Medium ).png";
+    public static final String SMALL_ASTEROID_SPRITE = "assets/Images/Sprites/Meteors/1111.png";
 }
 

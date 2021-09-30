@@ -22,13 +22,18 @@ import org.mini2Dx.core.audio.Sound;
 public class Sounds {
     private static final String DEATH_SFX = "assets/Sounds/SoundEffects/Death.wav";
     private static final String SHOOT_SFX = "assets/Sounds/SoundEffects/Laser_Shoot.wav";
-    private static final String EXPLODE_SFX = "assets/Sounds/SoundEffects/Explosion.wav";
+    private static final String EXPLODE_SFX = "assets/Sounds/SoundEffects/pobc.mp3";
     private static final String Background_SFX = "assets/Sounds/SoundEffects/big-iron-pecan-pie-main-version-01-53-3281.mp3";
+    private static final String CON_SFX = "assets/Sounds/SoundEffects/collision.mp3";
+    private static final String LOSE_SFX = "assets/Sounds/SoundEffects/lose.mp3";
 
-    public Sound death;
-    public Sound explode;
-    public Sound shoot;
-    public Sound back;
+    public Sound death; // sound of player death
+    public Sound explode; // sound of boom
+    public Sound shoot; // sound while shooting
+    public Sound back; // sound background
+    public Sound con; // sound of boom
+    public Sound lose; // sound win
+
 
     public Sounds() {
         try {
@@ -36,6 +41,8 @@ public class Sounds {
             explode = Mdx.audio.newSound(Mdx.files.external(EXPLODE_SFX));
             shoot = Mdx.audio.newSound(Mdx.files.external(SHOOT_SFX));
             back = Mdx.audio.newSound(Mdx.files.external(Background_SFX));
+            con = Mdx.audio.newSound(Mdx.files.external(CON_SFX));
+            lose = Mdx.audio.newSound(Mdx.files.external(LOSE_SFX));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
