@@ -23,7 +23,7 @@ import org.mini2Dx.core.Graphics;
 
 public class Bullet {
     private static final float MAX_TIME_TO_LIVE = 1;
-    private static final float SPEED = 10;
+    public static float SPEED = 10;
 
     private Physics physics;
     private CollisionBox collisionBox;

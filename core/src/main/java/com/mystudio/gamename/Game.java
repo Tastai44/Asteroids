@@ -24,7 +24,7 @@ public class Game extends BasicGame{
 
 
     // Sprite file locations
-    private static int MAX_BULLET = 2; // initialize number of bullets
+    private static int MAX_BULLET = 1; // initialize number of bullets
     private static int MAX_LARGE = 8; // initialize number of Big asteroids
     private static int MAX_MEDIUM = 14; // initialize number of Medium asteroids
     private static int MAX_SMALL = 25; // initialize number of Small asteroids
@@ -32,30 +32,33 @@ public class Game extends BasicGame{
     private Player player;
     private Bullet[] bullets = new Bullet[MAX_BULLET];
     // Used to pool our asteroids
-    private Asteroid[] asteroids = new Asteroid[50];
+    private Asteroid[] asteroids = new Asteroid[MAX_LARGE + MAX_MEDIUM + MAX_SMALL];
     // any active ones we'll add here to loop through
     private ArrayList<Asteroid> activeAsteroids;
     private Score score = new Score();
     private Lives lives = new Lives();
     private UI ui;
     private Sounds myGameSounds;
+    public Bullet speed; // speed of bullet
+    public Player rotationSpeed; // speed of spaceship
     int s; // keep score
-    int level=1;
+    int level=1; // number of level
 
     @Override
     public void initialise() {
-        bg = new BackGround(ImageFilePaths.BACKGROUND);
+        bg = new BackGround(ImageFilePaths.BACKGROUND); // use for declare background
         ui = new UI(lives.getRemainingLives(), score.getScore(), level);
         player = new Player();
         initialiseAsteroids();
         initialiseBullets();
         myGameSounds = new Sounds();
+
         myGameSounds.back.play(); // background sound
     }
 
     private void initialiseBullets() {
         for (int i = 0; i < MAX_BULLET; i++) {
-            bullets[i] = new Bullet(ImageFilePaths.LASER_BLUE);
+            bullets[i] = new Bullet(ImageFilePaths.LASER_BLUE); // Bullet's picture
         }
     }
 
@@ -158,8 +161,11 @@ public class Game extends BasicGame{
                 System.out.println("Game Over!");
                 // Game over picture
                 bg = new BackGround(ImageFilePaths.GAMEOVER);
+                myGameSounds.back.stop();
+                myGameSounds.lose.play();
             }
-            myGameSounds.death.play();
+            myGameSounds.con.play();
+//            myGameSounds.death.play();
             ui.set(lives.getRemainingLives(),score.getScore(),level);
         }
     }
@@ -190,9 +196,13 @@ public class Game extends BasicGame{
             lives.increaseLife();
             score.setScore(0);
             level++;
+            speed.SPEED += 10; // increase speed of bullet.
+            rotationSpeed.rotationSpeed += 20.0f; // increase speed of rotationSpeed spaceship.
             if(level == 5) {
+
                 System.out.println("YOU WIN!");
                 // Game Win picture
+                myGameSounds.back.stop();  // stop background sound
                 bg = new BackGround(ImageFilePaths.WIN);
             }
         }

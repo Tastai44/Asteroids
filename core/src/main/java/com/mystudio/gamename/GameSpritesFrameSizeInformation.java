@@ -24,10 +24,10 @@ public class GameSpritesFrameSizeInformation {
 
     public static final int ASTEROID_LARGE_FRAME_WIDTH = 98;
     public static final int ASTEROID_LARGE_FRAME_HEIGHT = 75;
-    public static final int ASTEROID_MEDIUM_FRAME_WIDTH = 43;
-    public static final int ASTEROID_MEDIUM_FRAME_HEIGHT = 43;
-    public static final int ASTEROID_SMALL_FRAME_WIDTH = 29;
-    public static final int ASTEROID_SMALL_FRAME_HEIGHT = 26;
+    public static final int ASTEROID_MEDIUM_FRAME_WIDTH = 45;
+    public static final int ASTEROID_MEDIUM_FRAME_HEIGHT = 45;
+    public static final int ASTEROID_SMALL_FRAME_WIDTH = 26;
+    public static final int ASTEROID_SMALL_FRAME_HEIGHT = 29;
 }
 
 

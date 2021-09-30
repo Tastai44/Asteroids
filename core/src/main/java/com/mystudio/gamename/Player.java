@@ -25,7 +25,7 @@ import java.awt.event.KeyEvent;
 public class Player {
     private CollisionCircle playerCollisionCircle;
     private float acceleration = 10;
-    private float rotationSpeed = 150.0f;
+    public static float rotationSpeed = 150.0f;
     private boolean alive = true;
     private Vector2 accelerationVector;
     private Vector2 playerFacingDirection;
@@ -48,7 +48,7 @@ public class Player {
     public void init() {
         accelerationVector.set(0, 0);
         playerFacingDirection.set(0, -1); // Facing up
-        playerCollisionCircle.setXY(320, 420);
+        playerCollisionCircle.setXY(320, 420); // Set position of spaceship
         physics.setVelocity(0, 0);
         setActive(true);
     }
