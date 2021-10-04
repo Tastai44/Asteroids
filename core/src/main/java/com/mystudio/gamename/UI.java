@@ -21,10 +21,19 @@ public class UI {
     private String lives;
     private String score;
     private String level;
+    private String in;
 
     public UI(int lives, int score, int level) {
         set(lives,score,level);
     }
+    public UI(String in) {
+        ins(in);
+    }
+
+    public void ins(String in){
+        this.in = in;
+    }
+
 
     public void set(int lives, int score, int level) {
         this.lives = "Lives Remaining: " + Integer.toString(lives);
@@ -36,6 +45,8 @@ public class UI {
         g.drawString(lives, 0,0);
         g.drawString(score, 250,0);
         g.drawString(level, 500,0);
+
+        g.drawString(in, 230,200);
     }
 
 }
