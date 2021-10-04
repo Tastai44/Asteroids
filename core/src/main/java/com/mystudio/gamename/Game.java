@@ -14,6 +14,8 @@
  * limitations under the License.
  ******************************************************************************/
 package com.mystudio.gamename;
+import java.util.concurrent.TimeUnit;
+import java.util.Date;
 
 import org.mini2Dx.core.Graphics;
 import org.mini2Dx.core.game.BasicGame;
@@ -38,15 +40,23 @@ public class Game extends BasicGame{
     private Score score = new Score();
     private Lives lives = new Lives();
     private UI ui;
+    private UI ui2;
     private Sounds myGameSounds;
     public Bullet speed; // speed of bullet
     public Player rotationSpeed; // speed of spaceship
     int s; // keep score
     int level=1; // number of level
+    int c = 1;
+    String intruction ;
+//    Thread.sleep(7000);
 
     @Override
     public void initialise() {
         bg = new BackGround(ImageFilePaths.BACKGROUND); // use for declare background
+        ui = new UI(intruction);
+
+
+
         ui = new UI(lives.getRemainingLives(), score.getScore(), level);
         player = new Player();
         initialiseAsteroids();
@@ -156,6 +166,9 @@ public class Game extends BasicGame{
             }
             player.setActive(false);
             lives.removeLife();
+            speed.SPEED -= 1; // decrease speed of bullet.
+            rotationSpeed.rotationSpeed -= 10.0f; // decrease speed of rotationSpeed spaceship.
+            score.changeScoreByAmount(-10); // Minus 10 points
             // Add Game over
             if(lives.getRemainingLives() == 0){
                 System.out.println("Game Over!");
@@ -232,7 +245,25 @@ public class Game extends BasicGame{
 
     @Override
     public void render(Graphics g) {
+
         bg.render(g);
+        if(c<301){
+
+            ui.ins("Instructions \n" +
+                    "Aunt Parina is 10 points.\n" +
+                    "Uncle Tu is 20 points.\n" +
+                    "Big Pawit is 80 points.");
+//            try {
+//                TimeUnit.SECONDS.sleep(3);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+            c ++;
+        }else{
+            c=303; // for stop counting
+            ui.ins("");
+        }
+
         for (Asteroid asteroid : activeAsteroids) {
             asteroid.render(g);
         }
@@ -245,5 +276,6 @@ public class Game extends BasicGame{
         player.render(g);
 
         ui.render(g);
+
     }
 }

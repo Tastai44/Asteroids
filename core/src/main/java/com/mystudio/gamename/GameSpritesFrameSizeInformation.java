@@ -16,8 +16,8 @@
 package com.mystudio.gamename;
 
 public class GameSpritesFrameSizeInformation {
-    public static final int BULLET_FRAME_WIDTH = 9;
-    public static final int BULLET_FRAME_HEIGHT = 54;
+    public static final int BULLET_FRAME_WIDTH = 50;
+    public static final int BULLET_FRAME_HEIGHT = 40;
 
     public static final int PLAYER_FRAME_WIDTH = 98;
     public static final int PLAYER_FRAME_HEIGHT = 75;

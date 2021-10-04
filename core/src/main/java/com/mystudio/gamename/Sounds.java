@@ -23,7 +23,7 @@ public class Sounds {
     private static final String DEATH_SFX = "assets/Sounds/SoundEffects/Death.wav";
     private static final String SHOOT_SFX = "assets/Sounds/SoundEffects/Laser_Shoot.wav";
     private static final String EXPLODE_SFX = "assets/Sounds/SoundEffects/pobc.mp3";
-    private static final String Background_SFX = "assets/Sounds/SoundEffects/big-iron-pecan-pie-main-version-01-53-3281.mp3";
+    private static final String Background_SFX = "assets/Sounds/SoundEffects/c.mp3";
     private static final String CON_SFX = "assets/Sounds/SoundEffects/collision.mp3";
     private static final String LOSE_SFX = "assets/Sounds/SoundEffects/lose.mp3";
 

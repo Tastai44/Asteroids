@@ -20,7 +20,7 @@ public class ImageFilePaths {
     public static final String GAMEOVER = "assets/Images/Backgrounds/1.jpg";
     public static final String WIN = "assets/Images/Backgrounds/22.jpg";
     public static final String PLAYER_ONE_SPRITE = "assets/Images/Sprites/Player/shoot.png";
-    public static final String LASER_BLUE = "assets/Images/Sprites/Lasers/laserBlue01.png";
+    public static final String LASER_BLUE = "assets/Images/Sprites/Lasers/unnamed.png";
 
     public static final String BIG_ASTEROID_SPRITE = "assets/Images/Sprites/Meteors/pari.png";
     public static final String MEDIUM_ASTEROID_SPRITE = "assets/Images/Sprites/Meteors/prayut ( Medium ).png";
