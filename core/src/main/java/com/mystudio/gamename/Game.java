@@ -183,7 +183,7 @@ public class Game extends BasicGame{
         }
     }
 
-    private void splitAsteroid(Asteroid asteroid) {
+    private <exit> void splitAsteroid(Asteroid asteroid) {
         if (asteroid.getSize() == Asteroid.SIZE_LARGE_ASTEROID) {
             placeAsteroid(MAX_LARGE, MAX_MEDIUM + MAX_LARGE,
                     asteroid.getCollisionCircle().getX(),
@@ -214,9 +214,11 @@ public class Game extends BasicGame{
             if(level == 5) {
 
                 System.out.println("YOU WIN!");
-                // Game Win picture
+
                 myGameSounds.back.stop();  // stop background sound
-                bg = new BackGround(ImageFilePaths.WIN);
+                bg = new BackGround(ImageFilePaths.WIN); // Game Win picture
+                myGameSounds.win.play();
+
             }
         }
 
@@ -224,6 +226,8 @@ public class Game extends BasicGame{
         asteroid.setActive(false);
 
     }
+
+
 
     public void placeAsteroid(int from, int to, float posX, float posY) {
         int numberOfAsteroidsSpawned = 0;
@@ -249,10 +253,12 @@ public class Game extends BasicGame{
         bg.render(g);
         if(c<301){
 
-            ui.ins("Instructions \n" +
-                    "Aunt Parina is 10 points.\n" +
-                    "Uncle Tu is 20 points.\n" +
-                    "Big Pawit is 80 points.");
+            ui.ins("        Instructions \n\n" +
+                    "Aunt Parina is 10 points.\n\n" +
+                    "Uncle Tu is 20 points.\n\n" +
+                    "Big Pawit is 80 points.\n\n" +
+                    "If you are hited, minus 10 points and\n\n" +
+                    "minus speed for 10 units.");
 //            try {
 //                TimeUnit.SECONDS.sleep(3);
 //            } catch (InterruptedException e) {
