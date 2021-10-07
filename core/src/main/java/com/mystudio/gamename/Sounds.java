@@ -26,13 +26,15 @@ public class Sounds {
     private static final String Background_SFX = "assets/Sounds/SoundEffects/c.mp3";
     private static final String CON_SFX = "assets/Sounds/SoundEffects/collision.mp3";
     private static final String LOSE_SFX = "assets/Sounds/SoundEffects/lose.mp3";
+    private static final String WIN_SFX = "assets/Sounds/SoundEffects/O.mp3";
 
     public Sound death; // sound of player death
     public Sound explode; // sound of boom
     public Sound shoot; // sound while shooting
     public Sound back; // sound background
     public Sound con; // sound of boom
-    public Sound lose; // sound win
+    public Sound lose; // sound lose
+    public Sound win; // sound win
 
 
     public Sounds() {
@@ -43,6 +45,7 @@ public class Sounds {
             back = Mdx.audio.newSound(Mdx.files.external(Background_SFX));
             con = Mdx.audio.newSound(Mdx.files.external(CON_SFX));
             lose = Mdx.audio.newSound(Mdx.files.external(LOSE_SFX));
+            win = Mdx.audio.newSound(Mdx.files.external(WIN_SFX));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

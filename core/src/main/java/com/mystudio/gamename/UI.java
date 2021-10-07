@@ -46,7 +46,7 @@ public class UI {
         g.drawString(score, 250,0);
         g.drawString(level, 500,0);
 
-        g.drawString(in, 230,200);
+        g.drawString(in, 230,170);
     }
 
 }
