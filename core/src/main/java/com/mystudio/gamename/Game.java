@@ -14,8 +14,6 @@
  * limitations under the License.
  ******************************************************************************/
 package com.mystudio.gamename;
-import java.util.concurrent.TimeUnit;
-import java.util.Date;
 
 import org.mini2Dx.core.Graphics;
 import org.mini2Dx.core.game.BasicGame;
@@ -40,13 +38,11 @@ public class Game extends BasicGame{
     private Score score = new Score();
     private Lives lives = new Lives();
     private UI ui;
-    private UI ui2;
     private Sounds myGameSounds;
     public Bullet speed; // speed of bullet
     public Player rotationSpeed; // speed of spaceship
-    int s; // keep score
     int level=1; // number of level
-    int c = 1;
+    int c = 1; // use for delay time of display instruction.
     String intruction ;
 //    Thread.sleep(7000);
 
@@ -165,7 +161,7 @@ public class Game extends BasicGame{
                 continue;
             }
             player.setActive(false);
-            lives.removeLife();
+            lives.removeLife(); // remove one live.
             speed.SPEED -= 1; // decrease speed of bullet.
             rotationSpeed.rotationSpeed -= 10.0f; // decrease speed of rotationSpeed spaceship.
             score.changeScoreByAmount(-10); // Minus 10 points
@@ -177,8 +173,7 @@ public class Game extends BasicGame{
                 myGameSounds.back.stop();
                 myGameSounds.lose.play();
             }
-            myGameSounds.con.play();
-//            myGameSounds.death.play();
+            myGameSounds.death.play(); // Sound of death
             ui.set(lives.getRemainingLives(),score.getScore(),level);
         }
     }
@@ -212,13 +207,10 @@ public class Game extends BasicGame{
             speed.SPEED += 10; // increase speed of bullet.
             rotationSpeed.rotationSpeed += 20.0f; // increase speed of rotationSpeed spaceship.
             if(level == 5) {
-
                 System.out.println("YOU WIN!");
-
                 myGameSounds.back.stop();  // stop background sound
                 bg = new BackGround(ImageFilePaths.WIN); // Game Win picture
                 myGameSounds.win.play();
-
             }
         }
 
@@ -259,11 +251,6 @@ public class Game extends BasicGame{
                     "Big Pawit is 80 points.\n\n" +
                     "If you are hited, minus 10 points and\n\n" +
                     "minus speed for 10 units.");
-//            try {
-//                TimeUnit.SECONDS.sleep(3);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
             c ++;
         }else{
             c=303; // for stop counting

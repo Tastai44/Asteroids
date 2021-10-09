@@ -24,7 +24,6 @@ import java.awt.event.KeyEvent;
 
 public class Player {
     private CollisionCircle playerCollisionCircle;
-    private float acceleration = 10;
     public static float rotationSpeed = 150.0f;
     private boolean alive = true;
     private Vector2 accelerationVector;
@@ -56,7 +55,7 @@ public class Player {
     //control movements of player
     public void update(float delta) {
         rotatePlayerShip(delta);
-//        movementInput(delta);
+
         physics.update(delta);
         Utility.wrapAroundMap(playerCollisionCircle);
     }
@@ -85,22 +84,6 @@ public class Player {
                 + Utility.OFFSET_SPRITE_ROTATION);
     }
 
-// move up and down
-//    private void movementInput(float delta) {
-//        if (!Utility.downKeyPressed() && !Utility.upKeyPressed()) {
-//        } else if (Utility.downKeyPressed()) {
-//            assignAccelerationVector(delta);
-//            physics.addForceReverse(accelerationVector);
-//        } else if (Utility.upKeyPressed()) {
-//            assignAccelerationVector(delta);
-//            physics.addForce(accelerationVector);
-//        }
-//    }
-
-    private void assignAccelerationVector(float delta) {
-        accelerationVector.x = (playerFacingDirection.x * acceleration * delta);
-        accelerationVector.y = (playerFacingDirection.y * acceleration * delta);
-    }
 
     public boolean isAlive() {
         return alive;
