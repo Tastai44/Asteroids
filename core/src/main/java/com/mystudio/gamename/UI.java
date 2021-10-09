@@ -21,7 +21,7 @@ public class UI {
     private String lives;
     private String score;
     private String level;
-    private String in;
+    private String in; // instruction
 
     public UI(int lives, int score, int level) {
         set(lives,score,level);
@@ -45,7 +45,6 @@ public class UI {
         g.drawString(lives, 0,0);
         g.drawString(score, 250,0);
         g.drawString(level, 500,0);
-
         g.drawString(in, 230,170);
     }
 
